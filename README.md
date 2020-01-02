@@ -1,2 +1,5 @@
-# ujava
-A library which extends Java so that it mimics having unsigned primitive datatypes
+# ujava (java.lang.Unsigned)
+A library which extends Java so it can mimic having unsigned primitive datatypes
+
+__License__: LGPLv3+
+
