@@ -6,6 +6,7 @@ __License__: LGPLv3+
 
 __Compiling and Packaging__:
 
+Assuming you have [Java JDK](http://jdk.java.net) installed,<br/>
 Enter `ujava` folder via the command prompt or terminal.
 
 Then enter:
