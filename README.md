@@ -25,7 +25,7 @@ __To Use__:
 Copy & paste `ujava.jar` to your 3rd-party lib folder.
 
 Then add to your program:
-```bash
+```java
 import ujava.*;
 ```
 
