@@ -14,10 +14,6 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 */
-import java.io.*;
-import java.nio.*;
-import java.util.*;
-import static java.lang.System.out;
 //import ujava.*;
 /**
 Class Description:
@@ -29,7 +25,7 @@ Stored input and resulting output is Little-Endian.
 public class ubyte
 {
     // class variables
-    private static short ubyte=(byte)0x00;
+    private byte ubyte=(byte)0x00;
 
     //==========================================================================
     // class constructor with no value.
@@ -54,83 +50,48 @@ public class ubyte
     {
         set(Int);
     }
-    // class constructor with a byte array value to be stored (lossy)
-    public ubyte(byte[] ba, int offset, int bytesToRead, int byteOrder)
-    {
-        // ByteOrder: LITTLE_ENDIAN=0, BIG_ENDIAN=1
-        set(ba,offset,bytesToRead,byteOrder);
-    }
 
     //==========================================================================
     // get() function with a byte value to be returned
-    public static byte get()
-    {
-        return (byte)ubyte;
-    }
-    // get() function with a short value to be returned
-    public static short getShort()
+    public byte get()
     {
         return ubyte;
     }
-    // get() function with a char value to be returned
-    public static char getChar()
+    // get() function with a short value to be returned
+    public short getS()
     {
-        return (char)ubyte;
+        return (short)(ubyte &0xFF);
+    }
+    // get() function with a char value to be returned
+    public char getC()
+    {
+        return (char)(ubyte &0xFF);
     }
     // get() function with a int value to be returned
-    public static int getInt()
+    public int getI()
     {
-        return (int)ubyte;
+        return (ubyte &0xFF);
     }
 
     //==========================================================================
     // set() function with a byte value to be stored from a byte
-    public static void set(byte Int)
+    public void set(byte Int)
     {
-        ubyte = toUnsignedByte((int)Int);
+        ubyte = Int;
     }
     // set() function with a byte value to be stored from a short (lossy)
-    public static void set(short Int)
+    public void set(short Int)
     {
-        ubyte = toUnsignedByte((int)Int);
+        ubyte = (byte)(Int &0xFF);
     }
     // set() function with a byte value to be stored from a char (lossy)
-    public static void set(char Int)
+    public void set(char Int)
     {
-        ubyte = toUnsignedByte((int)Int);
+        ubyte = (byte)(Int &0xFF);
     }
     // set() function with a byte value to be stored from a int (lossy)
-    public static void set(int Int)
+    public void set(int Int)
     {
-        ubyte = toUnsignedByte(Int);
-    }
-    // set() function with a byte value to be stored from a byte array (lossy)
-    public static void set(byte[] ba,int offset,int bytesToRead,int byteOrder)
-    {
-        int tmp = 0x00;
-        ByteBuffer bb = ByteBuffer.wrap(ba);
-        // byteOrder: LITTLE_ENDIAN=0, BIG_ENDIAN=1
-        if(byteOrder==0)
-            bb.order(ByteOrder.LITTLE_ENDIAN);
-        else
-            bb.order(ByteOrder.BIG_ENDIAN);
-
-        bb.position(offset);
-        if(bytesToRead==2)
-        {
-            tmp = (int)bb.getShort();
-        }
-        else // 4 or error
-        {
-            tmp = bb.getInt();
-        }
-        ubyte = toUnsignedByte(tmp);
-    }
-
-    // Underlying workhorse of all the set() functions
-    public static short toUnsignedByte(int Int)
-    {
-        return (short)(java.lang.Byte.toUnsignedInt((byte)Int)&0x00FF);
+        ubyte = (byte)(Int &0xFF);
     }
 }
-

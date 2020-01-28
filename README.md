@@ -3,21 +3,12 @@ A library which extends Java so it can mimic having unsigned primitive datatypes
 
 __License__: LGPLv3+
 
+__Author__: [Sean Stafford](http://github.com/PyroSamurai)
 
 __Compiling and Packaging__:
 
-Assuming you have [Java JDK](http://jdk.java.net) installed,<br/>
-Enter `ujava` folder via the command prompt or terminal.
-
-Then enter:
-```bash
-javac -d . ./src/*.java
-```
-
-Then enter:
-```bash
-jar cf ujava.jar ujava
-```
+1. Install the Java JDK, links: [here](http://jdk.java.net) or [here](https://github.com/ojdkbuild/ojdkbuild)
+2. Double-click `compile-jar.bat` or `compile-jar.sh` to make `ujava.jar`
 
 You are done making the library.
 
@@ -30,5 +21,5 @@ Then add to your program:
 import ujava.*;
 ```
 
-Don't forget to add your 3rd-party lib folder to your classpath for both 
-the compile and run commands for your program.
+Don't forget to add your 3rd-party lib folder to your classpath for both
+ the compile and run commands for your program.
