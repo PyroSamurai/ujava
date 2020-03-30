@@ -1,8 +1,11 @@
 #!/bin/bash
-rm ujava.jar
+rm -f ujava.jar
+jar cf src/ujava.jar src/*.java LICENSE GPLV3 VERSION README.md
 cd src
 javac -d . *.java
 cd ..
-jar cf ujava.jar src/ujava src/*.java LICENSE GPLV3 VERSION README.md
-rm src/ujava/*.class
-rmdir src/ujava
+mv src/ujava ./
+mv src/ujava.jar ./
+jar uf ./ujava.jar ./ujava
+rm ujava/*.class
+rmdir ujava
